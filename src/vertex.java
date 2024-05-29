@@ -1,26 +1,26 @@
 import java.util.*;
 
-public class WeightedGraph<Vertex> {
-    private Vertex data;
-    private Map<WeightedGraph<Vertex>, Double> adjacentVertices;
+public class Vertex<V> {
+    private V data;
+    private Map<Vertex<V>, Double> adjacentVertices;
 
-    public void addAdjacentVertex(WeightedGraph<Vertex> destination, double weight){
+    public void addAdjacentVertex(Vertex<V> destination, double weight){
         adjacentVertices.put(destination,weight);
     }
 
-    public WeightedGraph(Vertex data) {
+    public Vertex(V data) {
         this.data = data;
         this.adjacentVertices = new HashMap<>();
     }
-    public Vertex getData() {
+    public V getData() {
         return data;
     }
 
-    public void setData(Vertex data) {
+    public void setData(V data) {
         this.data = data;
     }
 
-    public Map<WeightedGraph<Vertex>, Double> getAdjacentVertices() {
+    public Map<Vertex<V>, Double> getAdjacentVertices() {
         return adjacentVertices;
     }
 
@@ -29,7 +29,7 @@ public class WeightedGraph<Vertex> {
     public boolean equals(Object object) {
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
-        WeightedGraph<?> vertex = (WeightedGraph<?>) object;
+        Vertex<?> vertex = (Vertex<?>) object;
         return Objects.equals(data, vertex.data) && Objects.equals(adjacentVertices, vertex.adjacentVertices);
     }
 
