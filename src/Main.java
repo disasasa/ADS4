@@ -5,11 +5,18 @@ public class Main {
         fillWithWeights(weightedGraph);
 
         System.out.println("Dijkstra:");
-        Search<String> djk = new DijkstraSearch<>(weightedGraph, "Almaty");
+        Search<String> djk = new DS<>(weightedGraph, "Almaty");
         outputPath(djk, "Kyzylorda");
+
+
+        System.out.println("--------------------------------");
 
         MyGraph<String> graph = new MyGraph<>(true);
         fillWithoutWeights(graph);
+
+        System.out.println("DFS:");
+        Search<String> dfs = new DepthFirstSearch<>(graph, "Almaty");
+        outputPath(dfs, "Kyzylorda");
 
         System.out.println("--------------------------------");
 
